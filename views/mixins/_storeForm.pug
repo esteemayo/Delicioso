@@ -1,0 +1,39 @@
+mixin storeForm(store = {})
+    form.card(action=`/add/${store._id || ''}` method="POST" enctype="multipart/form-data")
+        .form__group
+            label.form__label(for="name") Name
+            input.form__input(type="text" id="name" name="name" value=store.name)
+
+        .form__group
+            label.form__label(for="description") Description
+            textarea.form__input(name="description" id="description")= store.description
+
+        .form__group
+            label.form__label(for="photo") Photo
+            input.form__input(type="file" name="photo" id="photo" accept="image/*")
+        if (store.photo)
+            img(src=`/img/stores/${store.photo}` alt=store.name title=store.name width=200)
+
+        .form__group
+            label.form__label(for="address") Address
+            input.form__input(type="text" id="address" name="location[address]" value=(store.location && store.location.address))
+
+        .form__group
+            label.form__label(for="lng") Address Lng
+            input.form__input(type="text" id="lng" name="location[coordinates][0]" value=(store.location && store.location.coordinates[0]))
+
+        .form__group
+            label.form__label(for="lat") Address Lat
+            input.form__input(type="text" id="lat" name="location[coordinates][1]" value=(store.location && store.location.coordinates[1]))
+
+        - const choices = ['Wifi', 'Open Late', 'Family Friendly', 'Vegatarian', 'Licensed']
+        - const tags = store.tags || []
+
+        ul.tags
+            each choice in choices
+                .tag.tag__choice
+                    input.form__input(type="checkbox" id=choice value=choice name="tags" checked=(tags.includes(choice)))
+                    label(for=choice)= choice
+
+        .form__group
+            input.button(type="submit" value="Save →")

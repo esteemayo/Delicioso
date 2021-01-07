@@ -1,0 +1,15 @@
+extends base
+
+include mixins/_storeCard
+include mixins/_pagination
+
+block content
+    .inner
+        h2.heading-secondary #{title.split(' ').slice(0, 2).join(' ')}
+        .stores
+            each store in stores
+                +storeCard(store)
+        
+        if stores
+            if !currentPath.startsWith('/hearts')
+                +pagination(page, pages, count)

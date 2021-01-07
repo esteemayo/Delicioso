@@ -1,0 +1,22 @@
+extends base
+
+block content
+    .inner
+        h2.heading-secondary Top #{stores.length} Stores
+        table.table
+            thead
+                tr
+                    th Photo
+                    th Ranking
+                    th Name
+                    th Reviews
+                    th Average Ratings
+            tbody
+                each store, i in stores
+                    tr
+                        td
+                            a(href=`/store/${store.slug}`): img(src=`/img/stores/${store.photo}` alt=store.name title=store.name width=200 height=132)
+                        td #{i + 1}
+                        td: a(href=`/store/${store.slug}`)= store.name
+                        td= store.reviews.length
+                        td #{Math.round(store.averageRatings * 10) / 10} / 5

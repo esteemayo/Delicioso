@@ -1,0 +1,14 @@
+mixin loginForm
+    .login-form
+        form.form.form--login
+            h2.heading-secondary Login
+            .form__group
+                label.form__label(for="email") Email Address
+                input#email.form__input(type="email" name="email" placeholder="you@example.com" required autofocus)
+            .form__group
+                label.form__label(for="password") Password
+                input#password.form__input(type="password" name="password" placeholder="********" minlength="8" required)
+            .form__group
+                input.button(type="submit" value="Log In →")
+
+            p: a(href="/forgot") Forgot your password?

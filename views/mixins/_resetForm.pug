@@ -1,0 +1,14 @@
+mixin resetForm
+    .reset-form
+        form.form(method="POST")
+            h2.heading-secondary  Reset Your Password
+            .form__group
+                label.form__label(for="password") Password
+                input.form__input(type="password" name="password" placeholder="********" minlength="8" required autofocu)
+
+            .form__group
+                label.form__label(for="password-confirm") Confirm Password
+                input.form__input(type="password" name="passwordConfirm" placeholder="********" minlength="8" required)
+
+            .form__group
+                input.button(type="submit" value="Reset Password →")

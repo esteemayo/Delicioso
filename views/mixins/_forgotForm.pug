@@ -1,0 +1,9 @@
+mixin forgotForm
+    .forgot-form
+        form.form.form--forgot-password
+            h2.heading-secondary I forgot my password!
+            .form__group
+                label.form__label(for="email") Email
+                input#email.form__input(type="email" name="email" placeholder="you@example.com" required autofocus)
+            .form__group
+                input.button(type="submit" value="Send a reset →")

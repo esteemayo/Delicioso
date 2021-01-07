@@ -1,0 +1,11 @@
+mixin review(review)
+    .review__header
+        .review__author
+            img.avatar(src=`/img/users/${review.author.photo}` alt=review.author.name title=review.author.name)
+            p= review.author.name
+        .review__stars(title=`Rated ${review.rating} out of 5 stars`)
+            = `★`.repeat(review.rating)
+            = `☆`.repeat(5 - review.rating)
+        time.review__time(datetime=review.createdAt)= h.moment(review.createdAt).fromNow()
+    .review__body
+        p= review.text

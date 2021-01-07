@@ -1,0 +1,14 @@
+extends base
+
+include mixins/_accountData
+include mixins/_accountPassword
+
+block content
+    .inner
+        h2.heading-secondary Edit Your Account
+        +accountData
+
+        .line &nbsp;
+
+        h2.heading-secondary Password Change
+        +accountPassword

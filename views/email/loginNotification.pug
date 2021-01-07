@@ -1,0 +1,14 @@
+extends emailLayout
+
+block content
+    p Dear #{name},
+    h4 #{subject}
+    - const time = new Date(Date.now());
+    p Please be informed that your delicioso.com account was accessed at #{time.toString()}
+    p If you did not log on to your DELICIOSO account at the time detailed above, please call DELICIOSOCONNECT; our 24 hour interactive contact on: (+121) 098 8907 9987 or send an email to 
+        a(href="mailto:info@delicioso.com") info@delicioso.com 
+        |  immediately.
+    
+    p Thank you for trusting us.
+    - const year = new Date();
+    p &copy; Copyright #{year.getFullYear()} Delicioso Stores, Inc. All rights reserved

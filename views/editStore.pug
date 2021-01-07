@@ -1,0 +1,8 @@
+extends base
+
+include mixins/_storeForm
+
+block content
+    .inner
+        h2.heading-secondary= title
+        +storeForm(store)

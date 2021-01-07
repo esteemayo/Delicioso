@@ -1,0 +1,10 @@
+extends base
+
+block content
+    .inner
+        h2.heading-secondary #{title.split(' ')[0]}
+        .map
+            .autocomplete
+                input.autocomplete.form__input(type="text" placeholder="Search for Anything" name="geolocate")
+            #map
+                p Loading Map...
